@@ -17,10 +17,8 @@
 #include "jsvariterator.h"
 
 static bool isNegativeZero(double x) {
-  double NEGATIVE_ZERO = -0.0;
-  long long *NEGATIVE_ZERO_BITS = (long long*)&NEGATIVE_ZERO;
-  long long *DOUBLE_BITS = (long long*)&x;
-  return *DOUBLE_BITS == *NEGATIVE_ZERO_BITS;
+    const double negativeZero = -0.0;
+    return memcmp(&x, &negativeZero, sizeof(double)) == 0;
 }
 
 #ifdef SAVE_ON_FLASH_EXTREME

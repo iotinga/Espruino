@@ -45,6 +45,7 @@ void ejs_clear_exception();
 size_t jsvGetString(const JsVar *v, char *str, size_t len);
 JsVar *jsvAsString(JsVar *v);
 size_t jsvGetStringLength(const JsVar *v);
+JsVarInt jsvGetInteger(const JsVar *v);
 JsVar *jswrap_json_stringify(JsVar *v, JsVar *replacer, JsVar *space);
 JsVar *jswrap_json_parse(JsVar *v);
 
@@ -64,7 +65,8 @@ JsVar *jsvNewFromLongInteger(long long value);
 JsVar *jsvNewEmptyArray();
 JsVar *jsvNewArray(JsVar **elements, int elementCount);
 
-JsVar *jsvObjectGetChild(JsVar *obj, const char *name, unsigned short createChild);
+// Not needed at the moment
+// JsVar *jsvObjectGetChild(JsVar *obj, const char *name, unsigned short createChild);
 JsVar *jsvLockAgainSafe(JsVar *var);
 void jsvUnLock(JsVar *var);
 

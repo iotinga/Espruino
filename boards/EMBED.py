@@ -17,39 +17,40 @@
 # JS interpreter.
 # ----------------------------------------------------------------------------------------
 
-import pinutils;
-info = {
- 'name' : "Embedded Espruino",
- 'variables' :  16000, # this forces 14 byte variables
- 'binary_name' : 'espruino_embedded.c',
- 'build' : {
-   'libraries' : [],
-   'makefile' : [
-     'ESPR_EMBED=1',
-     'USE_DEBUGGER=0',
-     'DEFINES+=-DUSE_CALLFUNCTION_HACK', # for now, just ensure we can be properly multiplatform
-     'DEFINES+=-DJSVAR_MALLOC'
-   ]
- }
-};
-chip = {
-  'part' : "EMBED", 
-  'family' : "EMBED",
-  'package' : "",
-  'ram' : 0,
-  'flash' : 0, # size of file used to fake flash memory (kb)
-  'speed' : -1,
-  'usart' : 6,
-  'spi' : 3,
-  'i2c' : 3,
-  'adc' : 0,
-  'dac' : 0,
-};
+import pinutils
 
-devices = {
-};
+info = {
+    "name": "Embedded Espruino",
+    "variables": 16000,  # this forces 14 byte variables
+    "binary_name": "espruino_embedded.c",
+    "build": {
+        "libraries": [],
+        "makefile": [
+            "ESPR_EMBED=1",
+            "USE_DEBUGGER=0",
+            "DEFINES+=-DEMBED",
+            "DEFINES+=-DUSE_CALLFUNCTION_HACK",  # for now, just ensure we can be properly multiplatform
+            "DEFINES+=-DJSVAR_MALLOC",
+        ],
+    },
+}
+chip = {
+    "part": "EMBED",
+    "family": "EMBED",
+    "package": "",
+    "ram": 0,
+    "flash": 0,  # size of file used to fake flash memory (kb)
+    "speed": -1,
+    "usart": 6,
+    "spi": 3,
+    "i2c": 3,
+    "adc": 0,
+    "dac": 0,
+}
+devices = {}
+
 
 def get_pins():
-  pins = pinutils.generate_pins(0,32) # FIXME - no pins needed
-  # just fake pins D0 .. D32
-  return pins
+    pins = pinutils.generate_pins(0, 32)  # FIXME - no pins needed
+    # just fake pins D0 .. D32
+    return pins

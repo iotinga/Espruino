@@ -2016,7 +2016,7 @@ JsVar *jsvNewFromStringVar(const JsVar *str, size_t stridx, size_t maxLength) {
     if (length > maxLength) length = maxLength;
     // if it's long enough to make sense, create a flat string instead
     if (length > JSV_FLAT_STRING_BREAK_EVEN) {
-      JsVar *var = jsvNewFlatStringFromStringVar(str, stridx, length);
+      JsVar *var = jsvNewFlatStringFromStringVar((JsVar *)str, stridx, length);
       if (var) return var;
     }
   }

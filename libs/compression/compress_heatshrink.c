@@ -136,8 +136,8 @@ uint32_t heatshrink_decode_cb(int (*in_callback)(uint32_t *cbdata), uint32_t *in
         for (i=0;i<count;i++)
           out_callback(outBuf[i], out_cbdata);
       polled += count;
-    } while (pres == HSER_POLL_MORE);
-    assert(pres == HSER_POLL_EMPTY);
+    } while (pres == HSDR_POLL_MORE);
+    assert(pres == HSDR_POLL_EMPTY);
     if (lastByte < 0) {
       heatshrink_decoder_finish(&hsd);
     }
