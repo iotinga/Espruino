@@ -48,7 +48,7 @@ The base class for reference errors - where a variable which doesn't exist has
 been accessed.
  */
 
-JsVar *_jswrap_error_constructor(JsVar *msg, char *type) {
+JsVar *_jswrap_error_constructor(JsVar *msg, const char *type) {
   JsVar *d = jspNewObject(0,type);
   if (!d) return 0;
 

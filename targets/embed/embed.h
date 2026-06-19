@@ -76,3 +76,8 @@ void jsExceptionHere(JsExceptionType type, const char *fmt, ...);
 returned is NOT locked and will be freed on the next call to ejs_catch_exception
 or ejs_clear_exception */
 JsVar *ejs_catch_exception();
+JsVar *jsvNewArrayBufferWithData(JsVarInt length, unsigned char *data);
+bool jsvIsArrayBuffer(const JsVar *v);
+char *jsvGetDataPointer(JsVar *v, size_t *len);
+JsVar *jsvNewObject();
+void jsvObjectSetChildAndUnLock(JsVar *parent, const char *name, JsVar *child);
